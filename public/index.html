@@ -8,70 +8,32 @@
 </head>
 
 <body>
-    <div class="container-fluid mt-5">
+    <div class="container mt-5">
         <div class="card">
-            <div class="card-header">
-                ENTRADA DO ARQUIVO
+            <div class="card-header bg-primary text-white">
+                <div class="text-center">
+                   <strong>ENTRADA DO ARQUIVO</strong> 
+                </div>
+
             </div>
             <div class="card-body">
                 <form id="form-file" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="directory" class="form-label">Diretorio do arquivo</label>
+                        <input type="text" name="directory" required="true" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="newDirectory" class="form-label">Novo diretorio do arquivo</label>
+                        <input type="text" name="newDirectory" required="true" class="form-control">
+                    </div>
                     <div class="custom-file">
-                        <input type="file" name="file" class="custom-file-input" id="file">
-                        <label class="custom-file-label" for="file">Insira o arquivo.</label>
+                    <input type="file" name="fileUpload" class="custom-file-input" id="file" required="true">
+                        <label class="custom-file-label" for="fileUpload">Insira o arquivo.</label>
                     </div>
                     <div class="btn-group m-2 float-right">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-primary">Mover</button>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid detalhes-corrida mt-3" style="display:none">
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-resul-corrida"
-                    role="tab" aria-controls="nav-home" aria-selected="true">RESULTADO DA CORRIDA</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-detalhes" role="tab"
-                    aria-controls="nav-profile" aria-selected="false">DETALHES DA CORRIDA</a>
-            </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-resul-corrida" role="tabpanel"
-                aria-labelledby="nav-home-tab">
-                <div class="card">
-                    <div class="card-header">
-                        RESULTADO DA CORRIDA
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-4">
-                                <label class="badge badge-success">MELHOR VOLTA DA CORRIDA</label>
-                                <ul class="list-group">
-                                    <li class="list-group-item active" id="tempo-melhor-volta"></li>
-                                    <li class="list-group-item" id="id-piloto-melhor-volta"></li>
-                                    <li class="list-group-item" id="nome-pilo-melhor-volta"></li>
-                                    <li class="list-group-item" id="numero-volta"></li>
-                                </ul>
-                            </div>
-                            <div class="col-8">
-                                <label class="badge badge-success">MELHOR VOLTA DE CADA PILOTO</label>
-                                <div id="accordion">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="nav-detalhes" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <div class="card">
-                    <div class="card-header">
-                        DETALHES DA CORRIDA
-                    </div>
-                    <div class="card-body">
-                        <div class="grid"></div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

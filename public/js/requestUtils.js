@@ -1,7 +1,7 @@
 var requestUtils = {
     showProgress: true,
     showError: true,
-    url: 'http://localhost:8000/',
+    url: 'http://localhost/project_files_v2/',
     doPostFile: function (path, dataItens, callback) {
         loading();
         $.ajax({
@@ -14,10 +14,11 @@ var requestUtils = {
             contentType: false,
             statusCode: {
                 201: callback,
-                400: function () {
-                    if (requestUtils.showError) {
-
-                    }
+                400: function (error) {
+                    Swal.fire({
+                        title: error.responseJSON.msg,
+                        icon: 'error'
+                    });
                 },
                 500: function (error) {}
             },

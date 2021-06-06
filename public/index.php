@@ -22,7 +22,6 @@ if (false) { // Should be set to true in production
     $containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
 }
 
-
 // Set up settings
 $settings = require __DIR__ . '../../app/settings.php';
 $settings($containerBuilder);
@@ -31,10 +30,6 @@ $settings($containerBuilder);
 // Set up dependencies
 $dependencies = require __DIR__ . '/../app/dependencies.php';
 $dependencies($containerBuilder);
-
-// Set up repositories
-$services = require __DIR__ . '/../app/services.php';
-$services($containerBuilder);
 
 
 // Build PHP-DI Container instance
@@ -48,6 +43,7 @@ $app->options('/{routes:.+}', function ($request, $response, $args) {
     return $response;
 });
 
+$app->setBasePath('/project_files_v2');
 
 $callableResolver = $app->getCallableResolver();
 

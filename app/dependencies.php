@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Application\Controllers\FileController;
 use App\Application\Controllers\ProcessaCorridaController;
 use DI\ContainerBuilder;
 use Monolog\Handler\StreamHandler;
@@ -30,10 +31,9 @@ return function (ContainerBuilder $containerBuilder) {
             return $logger;
         },
 
-        ProcessaCorridaController::class => function (ContainerInterface $container) {
-            return new ProcessaCorridaController(
+        FileController::class => function (ContainerInterface $container) {
+            return new FileController(
                 $container->get(LoggerInterface::class),
-                $container->get(\App\Application\Services\ProcessaCorridaServiceImpl::class)
             );
         },
 
